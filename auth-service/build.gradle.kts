@@ -18,19 +18,30 @@ repositories {
 }
 
 dependencies {
+	//Spring
 	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.2")
+
+	// Kotlin
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 
 	//reactor
 
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
+	// Database
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	runtimeOnly("org.postgresql:postgresql")
+
+	//Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

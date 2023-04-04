@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: APP
+
+exchange:
+  server:
+    auth:
+      url: http://localhost:8081
+    product:
+      url: http://localhost:8082
+
