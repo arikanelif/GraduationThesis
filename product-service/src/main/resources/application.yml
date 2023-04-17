@@ -1,0 +1,16 @@
+server.port : 8082
+
+spring:
+  application.name: product
+  r2dbc:
+    username: ${database.user}
+    password: ${database.password}
+    url: r2dbc:postgresql://${database.endpoint}/${database.name}
+
+
+# Database
+database:
+  endpoint: ${DATABASE_ENDPOINT}
+  name: ${DATABASE_NAME}
+  password: ${DATABASE_PASSWORD}
+  user: ${DATABASE_USER}
