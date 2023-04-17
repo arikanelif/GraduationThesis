@@ -1,0 +1,49 @@
+@startuml
+ 
+actor User
+participant Dev
+participant Interface
+participant Optimizer
+actor Courier
+Database Database
+ 
+User -> Dev : auth(authInfo)
+Dev --> User : startPage(categoriesList)
+
+Dev -> Database : pickCourier()
+Database --> Dev : Courier<>
+
+Dev -> Interface : getMarkets(User<>, Courier<>)
+Interface -> Optimizer : getMarkets(User<>, Courier<>)
+Optimizer --> Interface : List<Market> 
+Interface --> Dev : List<Market> 
+
+Dev -> Database : getProductsFromMarkets(List<Market>)
+Database --> Dev : List<Pair<Product,Market>> 
+
+User -> Dev : getProducts(Category<>)
+Dev --> User : List<Pair<Product,Market>> 
+
+User -> Dev : addToBasket(Pair<Product,Market>)
+
+User -> Dev : createOrder(User<>, Courier<>, Basket<>)
+Dev -> Interface : createOrder(User<>, Courier<>, Basket<>)
+Interface -> Optimizer : createOrder(User<>, Courier<>, Basket<>)
+Optimizer -> Interface : isAvailable(Courier<>)
+Interface -> Dev : isAvailable(Courier<>)
+Dev -> Courier : isAvailable(Courier<>)
+Courier --> Dev : Available<>
+Dev --> Interface : Available<>
+Interface --> Optimizer : Available<>
+
+Optimizer -> Interface : Order<Route, Courier, User>
+Interface -> Dev : Order<Route, Courier, User>
+Dev -> Courier : Route<>
+Dev -> User : Pair<Order,Courier>
+
+Courier -> Dev : deliver(Order<>)
+Dev -> Database : complete(Order<>)
+Dev -> User : updateOrderStatus(Completed<>)
+Dev -> Database : updateOrderStatus(Completed<>)
+
+@enduml
