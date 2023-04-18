@@ -1,0 +1,19 @@
+spring:
+  application.name : product-service
+  r2dbc:
+    username: ${database.user}
+    password: ${database.password}
+    url: r2dbc:${database.url}
+  flyway:
+    user: ${database.user}
+    password: ${database.password}
+    url: jdbc:${database.url}
+    baselineOnMigrate: true
+    table: flyway_product_schema_history
+
+database:
+  url: postgresql://localhost:5432/shopping_optimization
+  user: db_user
+  password: db_pass
+
+server.port : 8082
