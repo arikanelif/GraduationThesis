@@ -10,6 +10,6 @@ import java.util.*
 @Repository
 interface UserRepository: ReactiveCrudRepository<UserEntity, Long> {
 
-    override fun findById(id: Long): Mono<UserEntity>
+    fun findByEmail(email: String): Mono<UserEntity>
 
 }

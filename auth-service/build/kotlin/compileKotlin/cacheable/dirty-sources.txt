@@ -1,0 +1,7 @@
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/repository/UserRepository.kt
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/entity/UserEntity.kt
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/entity/AddressEntity.kt
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/controller/UserController.kt
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/service/UserService.kt
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/model/UserType.kt
+/Users/elifarikan/Desktop/GraduationThesis/auth-service/src/main/kotlin/com/shopping/optimization/authservice/AuthServiceApplication.kt

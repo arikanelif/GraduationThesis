@@ -21,7 +21,6 @@ class UserService(
     ) {
         userRepository.save(UserEntity(
             id = userId,
-            type = type,
             email = email,
             username = username,
             password = password,
