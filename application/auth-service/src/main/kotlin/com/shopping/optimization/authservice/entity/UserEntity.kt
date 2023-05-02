@@ -1,13 +1,11 @@
 package com.shopping.optimization.authservice.entity
 
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue
+import com.shopping.optimization.authservice.model.Role
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
-import org.springframework.security.core.token.Token
 import org.springframework.security.core.userdetails.UserDetails
-import sun.jvm.hotspot.debugger.cdbg.EnumType
-
 
 @Table("user")
 data class UserEntity(
@@ -16,22 +14,20 @@ data class UserEntity(
     val lastname: String,
     val pass: String,
     val email: String,
-    val phoneNumber: Number,
+    val phoneNumber: String,
     val addressId: Long? = null,
     @JsonEnumDefaultValue
     val role: Role,
-
-    val tokens: List<Token>
-): UserDetails {
+) : UserDetails {
     override fun getAuthorities(): Collection<GrantedAuthority?> {
-        return listOf(SimpleGrantedAuthority(role.name()))
+        return listOf(SimpleGrantedAuthority(role.name))
     }
 
     override fun getPassword(): String? {
         return password
     }
 
-    override fun getUsername(): String? {
+    override fun getUsername(): String {
         return email
     }
 

@@ -1,12 +1,11 @@
 package com.shopping.optimization.authservice.service
 
 import com.shopping.optimization.authservice.entity.UserEntity
+import com.shopping.optimization.authservice.model.Role
 import com.shopping.optimization.authservice.model.UserType
 import com.shopping.optimization.authservice.repository.UserRepository
 import kotlinx.coroutines.reactor.awaitSingle
-import kotlinx.coroutines.reactor.awaitSingleOrNull
 import org.springframework.stereotype.Service
-import reactor.core.publisher.Mono
 
 @Service
 class UserService(
@@ -16,19 +15,25 @@ class UserService(
         userId: Long,
         type: UserType,
         email: String,
-        username: String,
+        firstname: String,
+        lastname: String,
+        phoneNumber: String,
         password: String,
     ) {
-        userRepository.save(UserEntity(
-            id = userId,
-            email = email,
-            username = username,
-            password = password,
-        )).awaitSingle()
+        userRepository.save(
+            UserEntity(
+                id = userId,
+                firstname = firstname,
+                lastname = lastname,
+                pass = password,
+                phoneNumber = phoneNumber,
+                email = email,
+                role = Role.USER,
+            ),
+        ).awaitSingle()
     }
 
     suspend fun getUser(userId: Long): UserEntity {
         return userRepository.findById(userId).awaitSingle()
     }
-
 }

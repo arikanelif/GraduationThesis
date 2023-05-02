@@ -12,17 +12,18 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 
-
 @Configuration
 class ApplicationConfig(
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
 ) {
     @Bean
     fun userDetailsService(): UserDetailsService? {
         return UserDetailsService { username ->
-            userRepository.findByEmail(username).block() ?:
-                throw UsernameNotFoundException("User not found") }
+            userRepository.findByEmail(username).block()
+                ?: throw UsernameNotFoundException("User not found")
+        }
     }
+
     @Bean
     fun authenticationProvider(): AuthenticationProvider? {
         val authProvider = DaoAuthenticationProvider()

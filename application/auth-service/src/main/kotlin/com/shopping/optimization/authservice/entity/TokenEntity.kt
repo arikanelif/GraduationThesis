@@ -1,4 +1,3 @@
 package com.shopping.optimization.authservice.entity
 
-class TokenEntity {
-}
+class TokenEntity

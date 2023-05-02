@@ -10,12 +10,12 @@ class OrderService (
     private val orderRepository: OrderRepository
     ){
     fun placeOrder(
-        userID: Long,
+        customerID: Long,
         courierID: Long,
         orderLineItems: List<OrderLineEntity>
     ){
         OrderEntity(
-            userId = userID,
+            customerId = customerID,
             courierId = courierID,
             orderLineItems = orderLineItems
         ).let { orderRepository.save(it) }

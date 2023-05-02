@@ -30,7 +30,7 @@ class JwtService {
 
     fun <T> extractClaim(
         token: String?,
-        claimsResolver: (Claims) -> T
+        claimsResolver: (Claims) -> T,
     ): T {
         val claims = extractAllClaims(token)
         return claimsResolver.invoke(claims)
@@ -42,13 +42,13 @@ class JwtService {
 
     fun generateToken(
         extraClaims: Map<String, Any>,
-        userDetails: UserDetails
+        userDetails: UserDetails,
     ): String? {
         return buildToken(extraClaims, userDetails, jwtExpiration)
     }
 
     fun generateRefreshToken(
-        userDetails: UserDetails
+        userDetails: UserDetails,
     ): String? {
         return buildToken(HashMap(), userDetails, refreshExpiration)
     }
@@ -56,7 +56,7 @@ class JwtService {
     private fun buildToken(
         extraClaims: Map<String, Any>,
         userDetails: UserDetails,
-        expiration: Long
+        expiration: Long,
     ): String? {
         return Jwts
             .builder()
@@ -94,5 +94,4 @@ class JwtService {
         val keyBytes: ByteArray = Decoders.BASE64.decode(secretKey)
         return Keys.hmacShaKeyFor(keyBytes)
     }
-
 }

@@ -1,6 +1,6 @@
 package com.shopping.optimization.authservice.model
 
-class AuthenticationRequest (
+class AuthenticationRequest(
     val email: String? = null,
-    val password: String? = null
-        )
+    val password: String? = null,
+)
