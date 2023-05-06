@@ -1,5 +1,5 @@
 spring:
-  application.name : auth-service
+  application.name : inventory-service
   r2dbc:
     username: ${database.user}
     password: ${database.password}
@@ -9,11 +9,11 @@ spring:
     password: ${database.password}
     url: jdbc:${database.url}
     baselineOnMigrate: true
-    table: flyway_order_schema_history
+    table: flyway_inventory_schema_history
 
 database:
-  url: postgresql://localhost:5432/shopping_optimization
+  url: postgresql://horton.db.elephantsql.com/qddaimwj
   user: qddaimwj
-  password: db_pass
+  password: aKYmIOp789I16fnvoSEY79iY9Bbc0qDt
 
-server.port : 8081
+server.port : 8084

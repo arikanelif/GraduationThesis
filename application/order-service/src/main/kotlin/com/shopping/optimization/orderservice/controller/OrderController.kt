@@ -13,8 +13,7 @@ import kotlin.math.log
 @RequestMapping("api/order")
 class OrderController (
     private val orderService: OrderService,
-    private val orderRepository: OrderRepository
-        ){
+    ){
     private val logger = LoggerFactory.getLogger(javaClass)
 
     @PostMapping
@@ -22,6 +21,11 @@ class OrderController (
     fun placeOrder(
         @RequestBody orderRequest: OrderRequestModel
     ) {
+        orderService.placeOrder(
+            customerID = orderRequest.customerId,
+            courierID = orderRequest.courierId,
+            orderLineItems = orderRequest.orderLineItems
+        )
         logger.info("Order placed successfully")
     }
 

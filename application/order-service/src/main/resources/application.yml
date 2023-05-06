@@ -9,11 +9,11 @@ spring:
         password: ${database.password}
         url: jdbc:${database.url}
         baselineOnMigrate: true
-        table: flyway_order_schema_history
+        table: flyway_orders_schema_history
 
 database:
-    url: postgresql://localhost:5432/shopping_optimization
-    user: elifarikan
-    password: db_pass
+    url: postgresql://horton.db.elephantsql.com/qddaimwj
+    user: qddaimwj
+    password: aKYmIOp789I16fnvoSEY79iY9Bbc0qDt
 
 server.port : 8083
