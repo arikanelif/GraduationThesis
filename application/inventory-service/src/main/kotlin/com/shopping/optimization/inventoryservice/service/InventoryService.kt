@@ -17,11 +17,13 @@ class InventoryService(
     private val inventoryRepository: InventoryRepository
 ) {
     @Transactional(readOnly = true)
-    fun isInStock(skuCode: List<String>): List<InventoryResponseModel> {
-        return inventoryRepository.findBySkuCodeIn(skuCode).stream()
-            .map { inventory -> InventoryResponseModel(inventory.skuCode, inventory.isInStock) }.toList()
+    suspend fun isInStock(skuCode: List<String>): List<InventoryResponseModel> {
+        return inventoryRepository.findBySkuCodeIn(skuCode).collectList().awaitSingle().flatMap {
+            listOf(InventoryResponseModel(it.skuCode, it.isInStock))
+        }
     }
 
+    @Transactional(readOnly = true)
     suspend fun getAllInventory(): List<InventoryEntity>? {
         return runBlocking{ inventoryRepository.findAll().collectList().awaitSingleOrNull() }
     }

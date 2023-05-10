@@ -11,9 +11,13 @@ spring:
     baselineOnMigrate: true
     table: flyway_product_schema_history
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 database:
-  url: postgresql://localhost:5432/shopping_optimization
-  user: db_user
-  password: db_pass
+  url: postgresql://horton.db.elephantsql.com/qddaimwj
+  user: qddaimwj
+  password: aKYmIOp789I16fnvoSEY79iY9Bbc0qDt
 
 server.port : 8082

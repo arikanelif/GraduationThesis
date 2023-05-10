@@ -24,10 +24,19 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springframework:spring-jdbc")
+
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
+
 	runtimeOnly("org.postgresql:postgresql")
 	runtimeOnly("org.postgresql:r2dbc-postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom ("org.springframework.cloud:spring-cloud-dependencies:2022.0.2")
+	}
 }
 
 tasks.withType<KotlinCompile> {

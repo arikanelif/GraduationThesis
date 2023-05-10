@@ -20,9 +20,14 @@ class OrderService (
     ){
         val listInventory :List<InventoryResponseModel> = listOf()
 
-        val inventoryResponse = webClient.webClient().build().get().uri("http://localhost:8084/api/inventory/")
+        val skuCodes = orderLineItems.map { it.skuCode }
+
+        val inventoryResponse : List<InventoryResponseModel>? = webClient.webClient().build().get()
+            .uri("http://localhost:8084/api/inventory/test")
+            //{ uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build() }
             .retrieve()
             .bodyToMono(listInventory::class.java).block()
+
         val allInStock = inventoryResponse?.stream()?.allMatch(InventoryResponseModel::isInStock)
         if (allInStock == true){
             OrderEntity(

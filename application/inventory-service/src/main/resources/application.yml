@@ -11,6 +11,11 @@ spring:
     baselineOnMigrate: true
     table: flyway_inventory_schema_history
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
 database:
   url: postgresql://horton.db.elephantsql.com/qddaimwj
   user: qddaimwj
