@@ -4,7 +4,7 @@ import courier
 
 class Order:
     # This method is called when a new Order object is created. It initializes the attributes of the Order.
-    def __init__(self, basket, customer: customer.Customer, courier: courier.Courier):
+    def __init__(self, basket, customer: customer.Customer, courier: courier.Courier, active_now: bool = False):
         # - order_id: a unique identifier for the Order (default is None)
         # - basket_id: a unique identifier for the Basket that the Order is created from
         # - customer: the customer who placed the Order
@@ -21,6 +21,7 @@ class Order:
         self.markets = []
         self.markets_to_products = {}
         self.route = None
+        self.active_now = active_now
 
     def create_route(self):
         # This method sets the route of the Order.

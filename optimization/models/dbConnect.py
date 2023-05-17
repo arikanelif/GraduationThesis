@@ -110,3 +110,29 @@ class DbConnect:
         """
         self.cur.close()
         self.conn.close()
+
+    def pickCourierAtBeginning(self, customer_id):
+        
+        # fetch customer
+        row = self.cur.execute(f"SELECT * FROM customer WHERE id = %s", (customer_id))
+        customer = self.cur.fetchone()
+        if customer[2] == None:
+            return "No location is assigned to this customer"
+        
+        location_id = customer[2]
+        # fetch location of customer
+        row = self.cur.execute("SELECT * FROM location WHERE id = %s", (location_id,))
+        location = self.cur.fetchone()
+
+        lat = location[1]
+        lon = location[2]
+
+        # fetch all couriers
+        row = self.cur.execute(f"""SELECT courier.courier_id, courier.name, location.lat, location.long
+            FROM courier
+            JOIN location ON courier.location_id = location.id
+            WHERE courier.available = TRUE
+            ORDER BY SQRT((location.lat - %s)^2 + (location.long - %s)^2) LIMIT 1;""", (lat, lon))
+
+        # return the row as a tuple
+        return self.cur.fetchone()

@@ -8,6 +8,7 @@ class Courier:
         # - location: the location of the Courier, in the format of the Location class
         # - mail: the email address of the Courier
         # - password: the password of the Courier's account
+        # - isaavailable: a boolean value indicating whether the Courier is available to take orders
         self.courier_id = courier_id
         self.name = name
         self.location = location 
@@ -15,6 +16,7 @@ class Courier:
         self.password = password
         self.current_order = None
         self.past_orders = []
+        self.isavailable = True
     
     def get_courier_id(self):
         # This method returns the Courier ID.

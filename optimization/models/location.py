@@ -2,41 +2,44 @@ class Location:
     """
     Represents a location with its latitude, longitude, and address information.
     """
-    def __init__(self, lat: float = None, long: float = None, street_name: str = None, street_name_2: str = None,
-                 neighborhood: str = None, town: str = None, city: str = None, country: str = None, state: str = None,
-                 apartment_number: int = None, inner_door_number: int = None, postal_code: int = None,
-                 address_explanation: str = None):
-        """
-        Creates a new Location object with the given latitude, longitude, and address information.
+    class Location:
+        def __init__(self, id: int = None, lat: float = None, long: float = None, street_name: str = None,
+                    street_name_2: str = None, neighborhood: str = None, town: str = None, city: str = None,
+                    country: str = None, state: str = None, apartment_number: int = None, inner_door_number: int = None,
+                    postal_code: int = None, address_explanation: str = None):
+            """
+            Creates a new Location object with the given latitude, longitude, and address information.
 
-        Args:
-            lat (float): The latitude of the location.
-            long (float): The longitude of the location.
-            street_name (str, optional): The name of the street. Defaults to None.
-            street_name_2 (str, optional): The name of a second street if applicable. Defaults to None.
-            neighborhood (str, optional): The name of the neighborhood. Defaults to None.
-            town (str, optional): The name of the town. Defaults to None.
-            city (str, optional): The name of the city. Defaults to None.
-            country (str, optional): The name of the country. Defaults to None.
-            state (str, optional): The name of the state or province. Defaults to None.
-            apartment_number (int, optional): The number of the apartment. Defaults to None.
-            inner_door_number (int, optional): The number of the inner door. Defaults to None.
-            postal_code (int, optional): The postal code of the location. Defaults to None.
-            address_explanation (str, optional): An explanation of the address. Defaults to None.
-        """
-        self._lat = lat
-        self._long = long
-        self._street_name = street_name
-        self._street_name_2 = street_name_2
-        self._neighborhood = neighborhood
-        self._town = town
-        self._city = city
-        self._country = country
-        self._state = state
-        self._apartment_number = apartment_number
-        self._inner_door_number = inner_door_number
-        self._postal_code = postal_code
-        self._address_explanation = address_explanation
+            Args:
+                id (int, optional): The unique ID of the location. Defaults to None.
+                lat (float, optional): The latitude of the location. Defaults to None.
+                long (float, optional): The longitude of the location. Defaults to None.
+                street_name (str, optional): The name of the street. Defaults to None.
+                street_name_2 (str, optional): The name of a second street if applicable. Defaults to None.
+                neighborhood (str, optional): The name of the neighborhood. Defaults to None.
+                town (str, optional): The name of the town. Defaults to None.
+                city (str, optional): The name of the city. Defaults to None.
+                country (str, optional): The name of the country. Defaults to None.
+                state (str, optional): The name of the state or province. Defaults to None.
+                apartment_number (int, optional): The number of the apartment. Defaults to None.
+                inner_door_number (int, optional): The number of the inner door. Defaults to None.
+                postal_code (int, optional): The postal code of the location. Defaults to None.
+                address_explanation (str, optional): An explanation of the address. Defaults to None.
+            """
+            self._id = id
+            self._lat = lat
+            self._long = long
+            self._street_name = street_name
+            self._street_name_2 = street_name_2
+            self._neighborhood = neighborhood
+            self._town = town
+            self._city = city
+            self._country = country
+            self._state = state
+            self._apartment_number = apartment_number
+            self._inner_door_number = inner_door_number
+            self._postal_code = postal_code
+            self._address_explanation = address_explanation
 
     def __str__(self):
         """
