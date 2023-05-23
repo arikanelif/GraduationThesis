@@ -8,6 +8,5 @@ import java.util.*
 
 @Repository
 interface UserRepository : ReactiveCrudRepository<UserEntity, Long> {
-
     fun findByEmail(email: String): Mono<UserEntity>
 }

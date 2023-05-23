@@ -27,6 +27,7 @@ dependencies {
 
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
 
+
 	runtimeOnly("org.postgresql:postgresql")
 	runtimeOnly("org.postgresql:r2dbc-postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

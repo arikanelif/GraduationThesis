@@ -25,6 +25,11 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=/api/inventory/**
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+              - Path=/api/auth/**
+
 
 eureka:
   client:
@@ -43,3 +48,4 @@ logging:
             route:
               - RouteDefinitionRouteLocator: info
               - Trace
+

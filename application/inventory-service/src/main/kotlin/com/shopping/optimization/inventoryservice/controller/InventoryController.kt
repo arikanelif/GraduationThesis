@@ -6,7 +6,6 @@ import com.shopping.optimization.inventoryservice.service.InventoryService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import reactor.core.publisher.Flux
 
 @RestController
 @RequestMapping("/api/inventory")

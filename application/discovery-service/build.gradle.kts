@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.0.6"
     id("io.spring.dependency-management") version "1.1.0"
+    id("org.jmailen.kotlinter") version "3.14.0"
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
 }
@@ -33,7 +34,7 @@ dependencies {
     implementation("org.springframework:spring-jdbc")
 
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:4.0.1")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:3.0.3")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 }

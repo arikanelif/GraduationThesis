@@ -1,5 +1,12 @@
 spring:
-  application.name : auth-service
+  application:
+    name : auth-service
+    security:
+      jwt:
+        secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+        expiration: 86400000 # a day
+        refresh-token:
+          expiration: 604800000 # 7 days
   r2dbc:
     username: ${database.user}
     password: ${database.password}
@@ -9,11 +16,16 @@ spring:
     password: ${database.password}
     url: jdbc:${database.url}
     baselineOnMigrate: true
-    table: flyway_order_schema_history
+    table: flyway_auth_schema_history
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 
 database:
-  url: postgresql://localhost:5432/shopping_optimization
+  url: postgresql://horton.db.elephantsql.com/qddaimwj
   user: qddaimwj
-  password: db_pass
+  password: aKYmIOp789I16fnvoSEY79iY9Bbc0qDt
 
 server.port : 8081

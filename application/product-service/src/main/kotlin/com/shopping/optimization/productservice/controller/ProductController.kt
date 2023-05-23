@@ -21,7 +21,6 @@ class ProductController(
     private val productService: ProductService,
     private val productRepository: ProductRepository
 ) {
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     suspend fun createProduct(

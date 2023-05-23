@@ -18,7 +18,7 @@ class OrderController (
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun placeOrder(
+    suspend fun placeOrder(
         @RequestBody orderRequest: OrderRequestModel
     ) {
         orderService.placeOrder(
@@ -29,8 +29,4 @@ class OrderController (
         logger.info("Order placed successfully")
     }
 
-    @GetMapping
-    fun getAllOrders() {
-
-    }
 }

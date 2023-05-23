@@ -21,6 +21,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.8")
+    implementation("org.springframework.cloud:spring-cloud-sleuth-zipkin:3.1.8")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

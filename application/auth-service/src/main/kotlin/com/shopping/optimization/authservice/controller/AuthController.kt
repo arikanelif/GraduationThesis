@@ -4,6 +4,8 @@ import com.shopping.optimization.authservice.model.AuthenticationRequest
 import com.shopping.optimization.authservice.model.AuthenticationResponse
 import com.shopping.optimization.authservice.model.RegisterRequest
 import com.shopping.optimization.authservice.service.AuthService
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -18,8 +20,8 @@ class AuthController(
     @PostMapping("/register")
     suspend fun register(
         @RequestBody request: RegisterRequest,
-    ): ResponseEntity<AuthenticationResponse?>? {
-        return ResponseEntity.ok(authService.register(request))
+    ): AuthenticationResponse? {
+        return authService.register(request)
     }
 
     @PostMapping("/authenticate")
@@ -27,5 +29,13 @@ class AuthController(
         @RequestBody request: AuthenticationRequest,
     ): ResponseEntity<AuthenticationResponse?> {
         return ResponseEntity.ok(authService.authenticate(request))
+    }
+
+    @PostMapping("/refresh-token")
+    suspend fun refreshToken(
+        request: HttpServletRequest,
+        response: HttpServletResponse,
+    ) {
+        authService.refreshToken(request, response)
     }
 }

@@ -15,13 +15,13 @@ import kotlin.collections.HashMap
 @Service
 class JwtService {
 
-    @Value("\${application.security.jwt.secret-key}")
+    @Value("\${spring.application.security.jwt.secret-key}")
     private val secretKey: String? = null
 
-    @Value("\${application.security.jwt.expiration}")
+    @Value("\${spring.application.security.jwt.expiration}")
     private val jwtExpiration: Long = 0
 
-    @Value("\${application.security.jwt.refresh-token.expiration}")
+    @Value("\${spring.application.security.jwt.refresh-token.expiration}")
     private val refreshExpiration: Long = 0
 
     fun extractUsername(token: String?): String? {

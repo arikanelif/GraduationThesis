@@ -1,30 +1,29 @@
 package com.shopping.optimization.authservice.entity
 
-import com.fasterxml.jackson.annotation.JsonEnumDefaultValue
 import com.shopping.optimization.authservice.model.Role
+import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
-@Table("user")
+@Table("user_")
 data class UserEntity(
     val id: Long? = null,
-    val firstname: String,
-    val lastname: String,
+    val firstname: String? = null,
+    val lastname: String? = null,
+    @Column("password")
     val pass: String,
     val email: String,
-    val phoneNumber: String,
+    val phoneNumber: String? = null,
     val addressId: Long? = null,
-    @JsonEnumDefaultValue
-    val role: Role,
 ) : UserDetails {
     override fun getAuthorities(): Collection<GrantedAuthority?> {
-        return listOf(SimpleGrantedAuthority(role.name))
+        return listOf(SimpleGrantedAuthority(Role.USER.name))
     }
 
-    override fun getPassword(): String? {
-        return password
+    override fun getPassword(): String {
+        return pass
     }
 
     override fun getUsername(): String {
