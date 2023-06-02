@@ -1,6 +1,5 @@
 package com.shopping.optimization.orderservice.entity
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.shopping.optimization.orderservice.model.OrderLineItemsRequestModel
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
@@ -18,4 +17,5 @@ data class OrderEntity (
 
     @Column("order_line_items")
     val orderLineItems: List<OrderLineItemsRequestModel>
+
     )
