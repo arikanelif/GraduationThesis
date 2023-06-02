@@ -4,6 +4,7 @@ import com.shopping.optimization.orderservice.config.WebClientConfig
 import com.shopping.optimization.orderservice.entity.OrderEntity
 import com.shopping.optimization.orderservice.model.InventoryResponseModel
 import com.shopping.optimization.orderservice.model.OrderLineItemsRequestModel
+import com.shopping.optimization.orderservice.model.convertStringToOrderModel
 import com.shopping.optimization.orderservice.repository.OrderRepository
 import kotlinx.coroutines.reactor.awaitSingle
 import org.springframework.stereotype.Service
@@ -47,6 +48,17 @@ class OrderService (
                 Mono.error(Exception("Product is not in stock!"))
             }
         }.awaitSingle()
+    }
+
+    suspend fun createOrder(){
+        val result = webClient.webClient().build()
+            .get()
+            .uri("https://gradproject.herokuapp.com/createOrderFromBasketId/1")
+            .retrieve()
+            .bodyToMono(String::class.java).awaitSingle()
+
+        val orderModel = convertStringToOrderModel(result).awaitSingle()
+
     }
 
 }

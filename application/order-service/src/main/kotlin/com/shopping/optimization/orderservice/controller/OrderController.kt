@@ -1,12 +1,14 @@
 package com.shopping.optimization.orderservice.controller
 
 import com.shopping.optimization.orderservice.model.OrderRequestModel
-import com.shopping.optimization.orderservice.repository.OrderRepository
 import com.shopping.optimization.orderservice.service.OrderService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
-import org.springframework.web.bind.annotation.*
-import kotlin.math.log
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseStatus
+import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
@@ -27,6 +29,14 @@ class OrderController (
             orderLineItems = orderRequest.orderLineItems
         )
         logger.info("Order placed successfully")
+    }
+
+    @PostMapping("/test")
+    @ResponseStatus(HttpStatus.CREATED)
+    suspend fun createOrder(
+
+    ){
+        orderService.createOrder()
     }
 
 }

@@ -35,7 +35,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework:spring-jdbc")
 
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
+    //implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
     implementation("org.flywaydb:flyway-core")
     runtimeOnly("org.postgresql:r2dbc-postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

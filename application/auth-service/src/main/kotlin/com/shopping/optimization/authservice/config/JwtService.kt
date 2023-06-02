@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
 import java.security.Key
-import java.util.*
-import kotlin.collections.HashMap
+import java.util.Date
 
 @Service
 class JwtService {
@@ -45,12 +44,6 @@ class JwtService {
         userDetails: UserDetails,
     ): String? {
         return buildToken(extraClaims, userDetails, jwtExpiration)
-    }
-
-    fun generateRefreshToken(
-        userDetails: UserDetails,
-    ): String? {
-        return buildToken(HashMap(), userDetails, refreshExpiration)
     }
 
     private fun buildToken(

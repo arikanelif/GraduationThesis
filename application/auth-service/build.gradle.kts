@@ -30,16 +30,13 @@ dependencies {
     implementation("io.jsonwebtoken:jjwt-jackson:0.11.5")
 
     //Eureka
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
+    //implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.1")
 
     // Kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-
-    implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.8")
-    implementation("org.springframework.cloud:spring-cloud-sleuth-zipkin:3.1.8")
 
     // Database
     implementation("org.postgresql:r2dbc-postgresql")
